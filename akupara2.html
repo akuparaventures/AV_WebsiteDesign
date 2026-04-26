@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akupara Ventures LLP | Global Legal & Corporate Consultants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts for options B & C: Poppins (UI), Cormorant Garamond (B headings), Merriweather (C headings) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Deep Oxford Blue */
+            --primary-forest: #021c2f; /* Deep Oxford Blue */
+            /* Satin Gold */
+            --accent-gold: #CBAF4B;    /* Satin Gold */
+            --soft-white: #fcfcfc;
+            /* Default theme uses Option B headings */
+            --font-ui: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-head: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; /* Option B */
+        }
+
+        /* Theme C overrides (Merriweather for headings) */
+        :root.font-theme-c {
+            --font-head: 'Merriweather', Georgia, 'Times New Roman', serif; /* Option C */
+        }
+        body { 
+            font-family: var(--font-ui); 
+            letter-spacing: 0.01em;
+            background-color: var(--soft-white);
+        }
+        h1, h2, h3, .font-serif { 
+            font-family: var(--font-head);
+            font-weight: 600;
+        }
+        .bg-forest { background-color: var(--primary-forest); }
+        .text-gold { color: var(--accent-gold); }
+        .border-gold { border-color: var(--accent-gold); }
+        .btn-gold { 
+            background-color: var(--accent-gold); 
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background-color: #b1973e;
+            transform: translateY(-1px);
+        }
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .hero-overlay {
+            /* Deep Oxford Blue overlay for hero background (lighter so image shows through) */
+            background: linear-gradient(rgba(2, 28, 47, 0.35), rgba(2, 23, 37, 0.42));
+            position: absolute;
+            inset: 0;
+            z-index: 5; /* sits above the image but below the main content (z-10) */
+        }
+        /* Make hero images crop differently on small screens (focus higher) */
+        .hero-media {
+            position: absolute;
+            inset: 0;
+            z-index: 0; /* image layer */
+        }
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center; /* default framing */
+            display: block;
+        }
+        @media (max-width: 640px) {
+            .hero-media img {
+                object-position: center 30%; /* show more of upper area on mobile */
+            }
+            .hero-overlay {
+                background: linear-gradient(rgba(2, 28, 47, 0.92), rgba(2, 23, 37, 0.96));
+            }
+        }
+        /* Refined serif styling for headings */
+        h1 { font-size: 4rem; line-height: 1.1; }
+        h2 { font-size: 2.75rem; line-height: 1.2; }
+        /* Smooth width transitions for city tiles */
+        .city-tile {
+            transition: flex-basis 260ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease, border-color 220ms ease;
+        }
+        /* Contact button: outline by default, gold background + white text on hover */
+        .contact-btn {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 0.625rem 1.5rem; /* align with px-6 py-2.5 */
+            transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease;
+        }
+        .contact-btn:hover, .contact-btn:focus {
+            background-color: var(--accent-gold);
+            color: white;
+            box-shadow: 0 6px 18px rgba(13, 26, 20, 0.12);
+            outline: none;
+        }
+        
+    </style>
+            <!-- Leaflet CSS -->
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body class="text-slate-800">
+
+    <!-- Top Bar -->
+    <div class="bg-[#021c2f] text-white py-2.5 px-8 hidden md:flex justify-between items-center text-[12px] tracking-[0.25em] uppercase font-semibold">
+        <div class="flex gap-8">
+            <span class="opacity-80">LLP Registration: LLP-IN:ACW-3028</span>
+            <span class="opacity-80">Global Presence: 8 Strategic Hubs</span>
+        </div>
+        <div class="flex gap-6">
+            <a href="#" class="hover:text-gold transition-colors duration-300">LinkedIn</a>
+            <a href="#" class="hover:text-gold transition-colors duration-300">Insights</a>
+            <a href="#" class="hover:text-gold transition-colors duration-300">Client Login</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 w-full z-50 bg-white border-b border-slate-100 py-6 px-8 flex justify-between items-center shadow-sm">
+        <div class="flex items-center gap-4">
+                <div class="w-11 h-11 border border-gold flex items-center justify-center bg-white/0">
+                <img src="akupara_ventures_logo.png" alt="Akupara Ventures logo" class="w-10 h-10 object-contain" />
+            </div>
+                <div class="flex flex-col">
+                <span class="text-2xl font-serif font-bold tracking-tight text-[#021c2f] leading-none " aria-label="Akupara Ventures">Akupara Ventures</span>
+                <span class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold mt-1.5">Legal & Business Infrastructure LLP</span>
+            </div>
+        </div>
+    <div class="hidden lg:flex gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-[#021c2f]">
+            <a href="#home" class="nav-link">Firm Profile</a>
+            <a href="#practice-areas" class="nav-link">Practice Areas</a>
+            <a href="#sectors" class="nav-link">Sectors</a>
+            <a href="#global" class="nav-link">Global Reach</a>
+            <a href="#contact" class="contact-btn">Contact Us</a>
+        </div>
+        
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="relative min-h-[88vh] flex items-center justify-center text-white">
+            <div class="absolute inset-0 z-0">
+            <!-- Finance / trading desk themed background (responsive local copies) -->
+            <div class="hero-media">
+                <!-- Use the local hero image directly to ensure it always displays -->
+                <img src="./hero_financial.jpg" class="w-full h-full object-cover" alt="Financial meeting with charts" loading="lazy">
+            </div>
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+    <div class="relative z-10 max-w-5xl px-8 text-center">
+            <h4 class="text-gold uppercase tracking-[0.7em] text-[15px] mb-10 font-bold">Integrity • Excellence • Vision</h4>
+            <h1 class="font-serif italic mb-12">
+                Architecting Financial Frameworks for <br/>
+                <span class="not-italic text-white">Enterprise Ventures</span>
+            </h1>
+            <div class="w-24 h-[1px] bg-gold mx-auto mb-12 opacity-60"></div>
+            <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-16 font-semibold leading-relaxed">
+                Akupara Ventures LLP provides a bridge between corporate innovation and regulatory compliance, ensuring your business ventures stand on a solid financial foundation.
+            </p>
+            <div class="flex flex-wrap justify-center gap-8">
+                <a href="#contact" class="btn-gold px-14 py-5 text-white text-[11px] font-bold uppercase tracking-[0.25em] shadow-2xl">Consult Our Partners</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Welcome / Philosophy -->
+    <section class="py-32 px-8 bg-white">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-24 items-center">
+            <div class="order-2 md:order-1">
+                <span class="text-gold uppercase tracking-[0.25em] text-[10px] font-bold">Our Philosophy</span>
+                <h2 class="font-serif text-[#021c2f] mt-8 mb-10 italic">A Heritage of Trust, <br/><span class="not-italic font-bold text-gold">A Future of Stability.</span></h2>
+                <p class="text-slate-600 leading-relaxed mb-10 font-light text-[15px]">
+                    Named after the celestial tortoise that supports the world, Akupara Ventures was founded on the principle that the most ambitious ventures require the sturdiest foundations. We provide stability in an ever-shifting global landscape.
+                </p>
+                <p class="text-slate-700 leading-relaxed italic border-l-2 border-gold pl-10 font-serif text-xl py-2">
+                    "We speak the language of both business and law, fostering strategic partnerships through meticulous planning and rigorous legal frameworks."
+                </p>
+            </div>
+            <div class="relative order-1 md:order-2">
+                <div class="absolute -top-8 -right-8 w-full h-full border border-gold z-0 opacity-20"></div>
+                <!-- Finance meeting / charts image (local copy) -->
+                <img src="./hero_financial.jpg" class="relative z-10 w-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000" alt="Financial meeting with charts">
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Areas -->
+    <section id="practice-areas" class="py-32 px-8 bg-[#021c2f]">
+        <div class="max-w-7xl mx-auto text-center mb-24">
+            <h2 class="font-serif text-gold italic">Specialized Practice Areas</h2>
+            <div class="w-16 h-[1px] bg-gold/40 mx-auto mt-8"></div>
+        </div>
+        
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-gold/10 shadow-2xl bg-[#042733]">
+            <!-- Area 01 -->
+            <div class="p-16 border-b md:border-b-0 md:border-r border-gold/10 hover:bg-[#063244] transition-all group duration-700">
+                <span class="text-5xl font-serif text-gold block mb-10 italic opacity-50">01</span>
+                <h3 class="text-white text-xs font-bold mb-8 uppercase tracking-[0.2em]">Corporate Governance</h3>
+                <p class="text-xs text-slate-400 group-hover:text-slate-200 leading-relaxed font-light">
+                    Structuring resilient corporate frameworks with a focus on risk management and global regulatory compliance across emerging markets.
+                </p>
+            </div>
+            <!-- Area 02 -->
+            <div class="p-16 border-b md:border-b-0 md:border-r border-gold/10 hover:bg-[#063244] transition-all group duration-700">
+                <span class="text-5xl font-serif text-gold block mb-10 italic opacity-50">02</span>
+                <h3 class="text-white text-xs font-bold mb-8 uppercase tracking-[0.2em]">M&A & IP Strategy</h3>
+                <p class="text-xs text-slate-400 group-hover:text-slate-200 leading-relaxed font-light">
+                    Advising on intellectual property rights, strategic mergers, and complex acquisitions for modern enterprises and venture-backed entities.
+                </p>
+            </div>
+            <!-- Area 03 -->
+            <div class="p-16 hover:bg-[#063244] transition-all group duration-700">
+                <span class="text-5xl font-serif text-gold block mb-10 italic opacity-50">03</span>
+                <h3 class="text-white text-xs font-bold mb-8 uppercase tracking-[0.2em]">Dispute Resolution</h3>
+                <p class="text-xs text-slate-400 group-hover:text-slate-200 leading-relaxed font-light">
+                    Specialized arbitration for commercial conflicts, contractual disagreements, and corporate liability management.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Reach -->
+    <section id="global" class="py-32 px-8 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
+                <div class="max-w-2xl">
+                    <h2 class="font-serif text-[#021c2f] italic leading-tight">A Global Network <br/><span class="not-italic">of Excellence</span></h2>
+                    <p class="text-slate-500 mt-8 font-light text-[15px] leading-relaxed">Operating from the world's most vital financial and commercial corridors to serve your interests without borders.</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-7xl font-serif text-gold italic">30+</span>
+                    <p class="text-[10px] uppercase tracking-[0.4em] text-slate-400 font-bold mt-4">In-house Partners</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
+                    <!-- Leaflet map: true geographic map using OpenStreetMap tiles -->
+                    <div class="col-span-full">
+                        <div id="map" class="w-full rounded-2xl overflow-hidden border border-slate-100 shadow-lg" style="height:420px; min-height:300px;"></div>
+                    </div>
+
+                    <!-- City tiles (kept for accessibility and layout) -->
+                    <div class="col-span-full flex flex-wrap gap-6 items-stretch">
+                        <div class="city-tile p-8 border border-slate-100 text-center hover:border-gold hover:shadow-xl transition-all duration-700 cursor-pointer group">
+                            <p class="city-label text-[11px] font-bold text-[#021c2f] group-hover:text-gold uppercase tracking-[0.12em] transition-colors whitespace-normal break-words leading-tight">Noida</p>
+                        </div>
+                        <div class="city-tile p-8 border border-slate-100 text-center hover:border-gold hover:shadow-xl transition-all duration-700 cursor-pointer group">
+                            <p class="city-label text-[11px] font-bold text-[#021c2f] group-hover:text-gold uppercase tracking-[0.12em] transition-colors whitespace-normal break-words leading-tight">Mumbai</p>
+                        </div>
+                        <div class="city-tile p-8 border border-slate-100 text-center hover:border-gold hover:shadow-xl transition-all duration-700 cursor-pointer group">
+                            <p class="city-label text-[11px] font-bold text-[#021c2f] group-hover:text-gold uppercase tracking-[0.12em] transition-colors whitespace-normal break-words leading-tight">Bengaluru</p>
+                        </div>
+                        <div class="city-tile p-8 border border-slate-100 text-center hover:border-gold hover:shadow-xl transition-all duration-700 cursor-pointer group">
+                            <p class="city-label text-[11px] font-bold text-[#021c2f] group-hover:text-gold uppercase tracking-[0.12em] transition-colors whitespace-normal break-words leading-tight">Hyderabad</p>
+                        </div>
+                        <div class="city-tile p-8 border border-slate-100 text-center hover:border-gold hover:shadow-xl transition-all duration-700 cursor-pointer group">
+                            <p class="city-label text-[11px] font-bold text-[#021c2f] group-hover:text-gold uppercase tracking-[0.12em] transition-colors whitespace-normal break-words leading-tight">Chennai</p>
+                        </div>
+                        <div class="city-tile p-8 border border-slate-100 text-center hover:border-gold hover:shadow-xl transition-all duration-700 cursor-pointer group">
+                            <p class="city-label text-[11px] font-bold text-[#021c2f] group-hover:text-gold uppercase tracking-[0.08em] transition-colors whitespace-normal break-words leading-tight">Bhubaneswar</p>
+                        </div>
+                        <div class="city-tile p-8 border border-slate-100 text-center hover:border-gold hover:shadow-xl transition-all duration-700 cursor-pointer group">
+                            <p class="city-label text-[11px] font-bold text-[#021c2f] group-hover:text-gold uppercase tracking-[0.12em] transition-colors whitespace-normal break-words leading-tight">Kochi</p>
+                        </div>
+                        <div class="city-tile p-8 border border-slate-100 text-center hover:border-gold hover:shadow-xl transition-all duration-700 cursor-pointer group">
+                            <p class="city-label text-[11px] font-bold text-[#021c2f] group-hover:text-gold uppercase tracking-[0.12em] transition-colors whitespace-normal break-words leading-tight">Singapore</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-[#021c2f] text-white py-32 px-8 relative">
+        <div class="max-w-4xl mx-auto text-center mb-24">
+            <h2 class="font-serif italic text-5xl mb-8 text-gold">Request a Consultation</h2>
+            <p class="text-slate-400 font-light text-sm tracking-widest uppercase">Confidential Regulatory & Corporate Assessments</p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto">
+            <form class="grid md:grid-cols-2 gap-10">
+                <input type="text" placeholder="Full Name" class="bg-transparent border-b border-gold/30 p-5 text-xs font-light tracking-widest focus:border-gold outline-none transition-all uppercase placeholder:text-slate-600">
+                <input type="email" placeholder="Corporate Email" class="bg-transparent border-b border-gold/30 p-5 text-xs font-light tracking-widest focus:border-gold outline-none transition-all uppercase placeholder:text-slate-600">
+                <select class="bg-transparent border-b border-gold/30 p-5 text-xs font-light tracking-widest focus:border-gold outline-none transition-all md:col-span-2 uppercase text-slate-300">
+                    <option class="bg-[#021c2f]">Corporate Governance</option>
+                    <option class="bg-[#021c2f]">Strategic Mergers</option>
+                    <option class="bg-[#021c2f]">Dispute Resolution</option>
+                </select>
+                <textarea placeholder="Briefly describe your requirements..." class="bg-transparent border-b border-gold/30 p-5 text-xs font-light tracking-widest focus:border-gold outline-none transition-all md:col-span-2 h-36 uppercase placeholder:text-slate-600"></textarea>
+                <div class="md:col-span-2 text-center mt-16">
+                    <button class="btn-gold px-24 py-6 text-[10px] font-bold uppercase tracking-[0.4em] shadow-2xl">Send Formal Inquiry</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#021720] text-slate-500 py-20 px-8 border-t border-gold/10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-[10px] tracking-[0.3em] uppercase font-bold">
+            <div class="flex items-center gap-8">
+                <div class="w-8 h-8 border border-gold/30 flex items-center justify-center font-serif text-gold/50 text-sm">A</div>
+                <span class="text-white/80">Akupara Ventures LLP</span>
+                <span class="font-medium opacity-30">&copy; 2026 All Rights Reserved</span>
+            </div>
+            <div class="flex gap-12">
+                <a href="#" class="hover:text-gold transition-colors duration-300">Terms</a>
+                <a href="#" class="hover:text-gold transition-colors duration-300">Privacy</a>
+                <a href="#" class="hover:text-gold transition-colors duration-300">Legal Disclaimer</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof L === 'undefined') {
+            console.error('Leaflet failed to load. Check network or CDN.');
+            var mapEl = document.getElementById('map');
+            if (mapEl) mapEl.innerHTML = '<p class="p-6 text-center text-sm text-red-600">Map failed to load. Please check your connection.</p>';
+            return;
+        }
+
+        const map = L.map('map', { zoomControl: true }).setView([20.5937, 78.9629], 4);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        const cities = [
+            { name: 'Noida', coords: [28.5355, 77.3910], info: 'Strategic hub near Delhi' },
+            { name: 'Mumbai', coords: [19.0760, 72.8777], info: 'Financial capital' },
+            { name: 'Bengaluru', coords: [12.9716, 77.5946], info: 'Tech & innovation' },
+            { name: 'Hyderabad', coords: [17.3850, 78.4867], info: 'Technology & services' },
+            { name: 'Chennai', coords: [13.0827, 80.2707], info: 'Industrial & port city' },
+            { name: 'Kochi', coords: [9.9312, 76.2673], info: 'Maritime hub' },
+            { name: 'Bhubaneswar', coords: [20.2961, 85.8245], info: 'Eastern India regional office' },
+            { name: 'Singapore', coords: [1.3521, 103.8198], info: 'Regional APAC hub' }
+        ];
+
+        cities.forEach(c => {
+            const marker = L.circleMarker(c.coords, {
+                radius: 8,
+                color: '#CBAF4B',
+                weight: 2,
+                fillColor: '#021c2f',
+                fillOpacity: 1
+            }).addTo(map);
+            marker.bindPopup(`<strong>${c.name}</strong><br/>${c.info}`);
+        });
+        // expose map and cities for tile handlers
+        window.__aku_map = map;
+        window.__aku_cities = cities;
+
+        // make city tiles interactive: click or Enter/Space focuses the city on the map
+        (function wireTileClicks() {
+            const tiles = document.querySelectorAll('.city-tile');
+            tiles.forEach((tile) => {
+                tile.setAttribute('tabindex', '0');
+                const labelEl = tile.querySelector('.city-label');
+                const cityName = labelEl ? labelEl.textContent.trim() : null;
+                if (!cityName) return;
+                const city = cities.find(c => c.name.toLowerCase() === cityName.toLowerCase());
+                if (!city) return;
+                const handler = (e) => {
+                    try {
+                        if (window.__aku_map && city.coords) {
+                            window.__aku_map.flyTo(city.coords, 10, { duration: 0.9 });
+                            // open popup near the marker if exists
+                            // (leaflet circleMarker doesn't have an easy map by name; open a temporary popup)
+                            L.popup({ autoClose: true, closeOnClick: true })
+                                .setLatLng(city.coords)
+                                .setContent(`<strong>${city.name}</strong><br/>${city.info}`)
+                                .openOn(window.__aku_map);
+                        }
+                    } catch (err) {
+                        console.warn('Tile click pan error', err);
+                    }
+                };
+                tile.addEventListener('click', handler);
+                tile.addEventListener('keydown', (ev) => {
+                    if (ev.key === 'Enter' || ev.key === ' ') {
+                        ev.preventDefault();
+                        handler(ev);
+                    }
+                });
+            });
+        })();
+        
+    });
+</script>
+<script>
+    // Adjust city-tile widths based on label length
+    (function () {
+        // use canvas.measureText for accurate width of label text
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        function getTextWidth(text, font) {
+            if (!ctx) return text.length * 8;
+            ctx.font = font || getComputedStyle(document.documentElement).getPropertyValue('--font-ui') || '12px Poppins';
+            return Math.ceil(ctx.measureText(text).width);
+        }
+
+        function adjustTiles() {
+            const tiles = document.querySelectorAll('.city-tile');
+            const computed = getComputedStyle(document.body);
+            const fontSize = computed.fontSize || '14px';
+            const fontFamily = getComputedStyle(document.body).fontFamily || 'Poppins, system-ui';
+            const fontSpec = `${fontSize} ${fontFamily}`;
+
+            tiles.forEach(tile => {
+                const label = tile.querySelector('.city-label');
+                if (!label) return;
+                const text = label.textContent.trim();
+                const textW = getTextWidth(text, fontSpec);
+                const horizontalPadding = 64; // left + right
+                const minW = 120;
+                const maxW = 360;
+                let w = Math.min(maxW, Math.max(minW, textW + horizontalPadding));
+                // set flex-basis (flex shorthand might be animated inconsistently across browsers)
+                tile.style.flex = `0 0 ${w}px`;
+            });
+        }
+
+        window.addEventListener('load', adjustTiles);
+        window.addEventListener('resize', function () {
+            clearTimeout(window._cityTileResize);
+            window._cityTileResize = setTimeout(adjustTiles, 100);
+        });
+        // run immediately
+        adjustTiles();
+    })();
+</script>
+</html>
