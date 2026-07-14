@@ -69,11 +69,15 @@ img {
 }
 
 .text-gold {
-    color: var(--accent-gold);
+    color: #CBAF4B !important;
 }
 
 .border-gold {
-    border-color: var(--accent-gold);
+    border: 1px solid #CBAF4B !important;
+}
+
+.bg-gold {
+    background-color: #CBAF4B !important;
 }
 
 /* ==========================================
