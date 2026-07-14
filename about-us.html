@@ -1,334 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Akupara Ventures LLP</title>
+    <title>About Us | Akūpāra Ventures LLP</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<!--
-    <style>
-
-        body{
-            font-family:Poppins,sans-serif;
-            background:#fcfcfc;
-            color:#1f2937;
-        }
-
-        h1,h2,h3{
-            font-family:"Cormorant Garamond",serif;
-        }
-
-        .gold{
-            color:#CBAF4B;
-        }
-
-        .bg-navy{
-            background:#021c2f;
-        }
-
-        .btn{
-            background:#CBAF4B;
-            transition:.3s;
-        }
-
-        .btn:hover{
-            background:#b79a3d;
-        }
-
-        .section{
-            padding:90px 20px;
-        }
-
-    </style>-->
 </head>
 
-<body>
+<body class="text-slate-800">
 
-<!-- Navigation -->
+    <!-- Top Bar -->
+    <div
+        class="bg-[#021c2f] text-white py-2.5 px-8 hidden md:flex justify-between items-center text-[12px] tracking-[0.25em] uppercase font-semibold">
+        <div class="flex gap-8">
+            <span class="opacity-80">LLP Registration: LLP-IN:ACW-3028</span>
+            <span class="opacity-80">Global Presence: 3 Strategic Hubs</span>
+        </div>
+        <div class="flex gap-6">
+            <a href="#" class="hover:text-gold transition-colors duration-300">Insights</a>
+            <a href="#" class="hover:text-gold transition-colors duration-300">Client Login</a>
+        </div>
+    </div>
 
-<nav class="sticky top-0 w-full z-50 bg-white border-b border-slate-100 py-6 px-8 flex justify-between items-center shadow-sm">
-    <div class="flex items-center gap-4">
+    <!-- Navigation -->
+
+    <nav
+        class="sticky top-0 w-full z-50 bg-white border-b border-slate-100 py-6 px-8 flex justify-between items-center shadow-sm">
+        <div class="flex items-center gap-4">
             <div class="w-11 h-11 border border-gold flex items-center justify-center bg-white/0">
-                <img src="images/akupara_ventures_logo.png" alt="Akupara Ventures logo" class="w-10 h-10 object-contain" />
+                <img src="images/akupara_ventures_logo.png" alt="Akupara Ventures logo"
+                    class="w-10 h-10 object-contain" />
             </div>
             <div class="flex flex-col">
-                <span class="text-2xl font-serif font-bold tracking-tight text-[#021c2f] leading-none " aria-label="Akupara Ventures">Akupara Ventures</span>
-                <span class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold mt-1.5">Wealth & Finance Management LLP</span>
+                <span class="text-2xl font-serif font-bold tracking-tight text-[#021c2f] leading-none "
+                    aria-label="Akupara Ventures">Akūpāra Ventures</span>
+                <span class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold mt-1.5">Wealth & Finance
+                    Management LLP</span>
             </div>
-    </div>
-    <div class="hidden lg:flex gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-[#021c2f]">
-        <a href="https://akuparaventures.com/" class="nav-link">Home</a>
-        <a href="/about-us.html" class="nav-link">About Us</a>
-        <a href="#practice-areas" class="nav-link">Practice Areas</a>
-        <a href="#global" class="nav-link">Global Reach</a>
-        <a href="#contact" class="contact-btn">Contact Us</a>
-    </div>
-        
-</nav>
-<!----
-<nav class="bg-white shadow py-6 px-10 flex justify-between items-center">
+        </div>
+        <div class="hidden lg:flex gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-[#021c2f]">
+            <a href="https://akuparaventures.com/" class="nav-link">Home</a>
+            <a href="/about-us.html" class="nav-link">About Us</a>
+            <a href="https://akuparaventures.com/#contact" class="contact-btn">Contact Us</a>
+        </div>
 
-    <div>
+    </nav>
 
-        <h2 class="text-3xl text-[#021c2f] font-bold">
-            Akupara Ventures
-        </h2>
 
-        <p class="text-xs uppercase tracking-[0.4em] gold">
-            Wealth & Finance Management LLP
+    <!-- Hero -->
+
+    <section class="bg-navy text-white py-28 text-center">
+
+        <h1 class="text-6xl mb-6">
+            About Akūpāra Ventures
+        </h1>
+
+        <div class="w-24 h-px bg-[#CBAF4B] mx-auto mb-8"></div>
+
+        <p class="max-w-3xl mx-auto text-lg text-slate-300 leading-8">
+
+            We believe that lasting wealth is built upon disciplined planning,
+            strategic investments, and trusted relationships. Our purpose is to
+            help individuals and businesses create financial stability that
+            extends across generations.
+
         </p>
 
-    </div>
+    </section>
 
-    <div class="space-x-8 uppercase text-sm font-semibold">
+    <!-- Our Story -->
 
-        <a href="https://akuparaventures.com/#home">Home</a>
+    <section class="section">
 
-        <a href="about-us.html" class="gold">About Us</a>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-5xl text-[#021c2f] mb-8">
+                    Our Story
 
-        <a href="index.html#practice-areas">Practice Areas</a>
+                </h2>
 
-        <a href="index.html#contact">Contact</a>
+                <p class="leading-8 text-gray-600 mb-6">
 
-    </div>
+                    Akūpāra Ventures LLP derives its name from the ancient concept of
+                    Akūpāra—the celestial tortoise symbolizing strength, endurance,
+                    and stability. Inspired by this philosophy, we help clients
+                    build financial foundations capable of supporting long-term growth.
 
-</nav>
--->
+                </p>
 
-<!-- Hero -->
+                <p class="leading-8 text-gray-600">
 
-<section class="bg-navy text-white py-28 text-center">
+                    Our team combines financial expertise with strategic thinking to
+                    provide practical solutions in wealth management, investment
+                    planning, financial advisory, and risk management.
 
-    <h1 class="text-6xl mb-6">
-        About Akupara Ventures
-    </h1>
+                </p>
 
-    <div class="w-24 h-px bg-[#CBAF4B] mx-auto mb-8"></div>
+            </div>
 
-    <p class="max-w-3xl mx-auto text-lg text-slate-300 leading-8">
+            <div>
 
-        We believe that lasting wealth is built upon disciplined planning,
-        strategic investments, and trusted relationships. Our purpose is to
-        help individuals and businesses create financial stability that
-        extends across generations.
+                <img src="images/CelestialTortois.png" class="rounded-lg shadow-2xl">
 
-    </p>
+            </div>
 
-</section>
+        </div>
 
-<!-- Our Story -->
+    </section>
 
-<section class="section">
+    <!-- Mission -->
 
-<div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <section class="bg-gray-50 section">
 
-<div>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-14">
 
-<h2 class="text-5xl text-[#021c2f] mb-8">
+            <div>
 
-Our Story
+                <h2 class="text-4xl text-[#021c2f] mb-6">
 
-</h2>
+                    Our Mission
 
-<p class="leading-8 text-gray-600 mb-6">
+                </h2>
 
-Akupara Ventures LLP derives its name from the ancient concept of
-Akupara—the celestial tortoise symbolizing strength, endurance,
-and stability. Inspired by this philosophy, we help clients
-build financial foundations capable of supporting long-term growth.
+                <p class="leading-8 text-gray-600">
 
-</p>
+                    To empower individuals, families, and businesses with intelligent
+                    financial strategies that preserve wealth, manage risk, and create
+                    lasting prosperity.
 
-<p class="leading-8 text-gray-600">
+                </p>
 
-Our team combines financial expertise with strategic thinking to
-provide practical solutions in wealth management, investment
-planning, financial advisory, and risk management.
+            </div>
 
-</p>
+            <div>
 
-</div>
+                <h2 class="text-4xl text-[#021c2f] mb-6">
 
-<div>
+                    Our Vision
 
-<img src="images/hero_financial.jpg"
-class="rounded-lg shadow-2xl">
+                </h2>
 
-</div>
+                <p class="leading-8 text-gray-600">
 
-</div>
+                    To become one of India's most trusted wealth and financial advisory
+                    firms by delivering ethical, transparent, and innovative financial
+                    solutions.
 
-</section>
+                </p>
 
-<!-- Mission -->
+            </div>
 
-<section class="bg-gray-50 section">
+        </div>
 
-<div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-14">
+    </section>
 
-<div>
+    <!-- Core Values -->
 
-<h2 class="text-4xl text-[#021c2f] mb-6">
+    <section class="section">
 
-Our Mission
+        <div class="max-w-6xl mx-auto text-center">
 
-</h2>
+            <h2 class="text-5xl text-[#021c2f] mb-14">
 
-<p class="leading-8 text-gray-600">
+                Our Core Values
 
-To empower individuals, families, and businesses with intelligent
-financial strategies that preserve wealth, manage risk, and create
-lasting prosperity.
+            </h2>
 
-</p>
+            <div class="grid md:grid-cols-4 gap-8">
 
-</div>
+                <div class="p-8 shadow rounded">
 
-<div>
+                    <h3 class="gold text-2xl mb-4">
 
-<h2 class="text-4xl text-[#021c2f] mb-6">
+                        Integrity
 
-Our Vision
+                    </h3>
 
-</h2>
+                    <p>
 
-<p class="leading-8 text-gray-600">
+                        We place honesty and transparency at the center of every client relationship.
 
-To become one of India's most trusted wealth and financial advisory
-firms by delivering ethical, transparent, and innovative financial
-solutions.
+                    </p>
 
-</p>
+                </div>
 
-</div>
+                <div class="p-8 shadow rounded">
 
-</div>
+                    <h3 class="gold text-2xl mb-4">
 
-</section>
+                        Trust
 
-<!-- Core Values -->
+                    </h3>
 
-<section class="section">
+                    <p>
 
-<div class="max-w-6xl mx-auto text-center">
+                        Long-term partnerships built on confidence and reliability.
 
-<h2 class="text-5xl text-[#021c2f] mb-14">
+                    </p>
 
-Our Core Values
+                </div>
 
-</h2>
+                <div class="p-8 shadow rounded">
 
-<div class="grid md:grid-cols-4 gap-8">
+                    <h3 class="gold text-2xl mb-4">
 
-<div class="p-8 shadow rounded">
+                        Excellence
 
-<h3 class="gold text-2xl mb-4">
+                    </h3>
 
-Integrity
+                    <p>
 
-</h3>
+                        Delivering thoughtful, professional, and practical financial advice.
 
-<p>
+                    </p>
 
-We place honesty and transparency at the center of every client relationship.
+                </div>
 
-</p>
+                <div class="p-8 shadow rounded">
 
-</div>
+                    <h3 class="gold text-2xl mb-4">
 
-<div class="p-8 shadow rounded">
+                        Growth
 
-<h3 class="gold text-2xl mb-4">
+                    </h3>
 
-Trust
+                    <p>
 
-</h3>
+                        Helping our clients achieve sustainable wealth creation.
 
-<p>
+                    </p>
 
-Long-term partnerships built on confidence and reliability.
+                </div>
 
-</p>
+            </div>
 
-</div>
+        </div>
 
-<div class="p-8 shadow rounded">
+    </section>
 
-<h3 class="gold text-2xl mb-4">
+    <!-- CTA -->
 
-Excellence
+    <section class="bg-navy text-center text-white py-24">
 
-</h3>
+        <h2 class="text-5xl mb-8">
 
-<p>
+            Let's Build Your Financial Future Together
 
-Delivering thoughtful, professional, and practical financial advice.
+        </h2>
 
-</p>
+        <p class="text-slate-300 max-w-3xl mx-auto mb-12">
 
-</div>
+            Whether you're planning your investments, growing your wealth,
+            or building a lasting legacy, Akūpāra Ventures LLP is committed
+            to being your trusted financial partner.
 
-<div class="p-8 shadow rounded">
+        </p>
 
-<h3 class="gold text-2xl mb-4">
+        <a href="https://akuparaventures.com/#contact" class="btn px-10 py-4 text-white rounded">
 
-Growth
+            Contact Us
 
-</h3>
+        </a>
 
-<p>
+    </section>
 
-Helping our clients achieve sustainable wealth creation.
+    <!-- Footer -->
 
-</p>
+    <footer class="bg-[#021720] text-gray-400 text-center py-10">
 
-</div>
+        © 2026 Akūpāra Ventures LLP • All Rights Reserved
 
-</div>
-
-</div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="bg-navy text-center text-white py-24">
-
-<h2 class="text-5xl mb-8">
-
-Let's Build Your Financial Future Together
-
-</h2>
-
-<p class="text-slate-300 max-w-3xl mx-auto mb-12">
-
-Whether you're planning your investments, growing your wealth,
-or building a lasting legacy, Akupara Ventures LLP is committed
-to being your trusted financial partner.
-
-</p>
-
-<a href="index.html#contact"
-class="btn px-10 py-4 text-white rounded">
-
-Contact Us
-
-</a>
-
-</section>
-
-<!-- Footer -->
-
-<footer class="bg-[#021720] text-gray-400 text-center py-10">
-
-© 2026 Akupara Ventures LLP • All Rights Reserved
-
-</footer>
+    </footer>
 
 </body>
 

@@ -72,8 +72,10 @@ img {
     color: #CBAF4B !important;
 }
 
-.border-gold {
-    border: 1px solid #CBAF4B !important;
+.border-gold{
+    border-width:1px !important;
+    border-style:solid !important;
+    border-color:#CBAF4B !important;
 }
 
 .bg-gold {

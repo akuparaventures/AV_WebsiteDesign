@@ -3,119 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akupara Ventures LLP | Wealth & Finance Management LLP</title>
+    <title>Akūpāra Ventures LLP | Wealth & Finance Management LLP</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fonts for options B & C: Poppins (UI), Cormorant Garamond (B headings), Merriweather (C headings) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!--
-    <style>
-        :root {
-            /* Deep Oxford Blue */
-            --primary-forest: #021c2f; /* Deep Oxford Blue */
-            /* Satin Gold */
-            --accent-gold: #CBAF4B;    /* Satin Gold */
-            --soft-white: #fcfcfc;
-            /* Default theme uses Option B headings */
-            --font-ui: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            --font-head: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; /* Option B */
-        }
 
-        /* Theme C overrides (Merriweather for headings) */
-        :root.font-theme-c {
-            --font-head: 'Merriweather', Georgia, 'Times New Roman', serif; /* Option C */
-        }
-        body { 
-            font-family: var(--font-ui); 
-            letter-spacing: 0.01em;
-            background-color: var(--soft-white);
-        }
-        h1, h2, h3, .font-serif { 
-            font-family: var(--font-head);
-            font-weight: 600;
-        }
-        .bg-forest { background-color: var(--primary-forest); }
-        .text-gold { color: var(--accent-gold); }
-        .border-gold { border-color: var(--accent-gold); }
-        .btn-gold { 
-            background-color: var(--accent-gold); 
-            transition: all 0.3s ease;
-        }
-        .btn-gold:hover {
-            background-color: #b1973e;
-            transform: translateY(-1px);
-        }
-        .nav-link {
-            position: relative;
-            padding-bottom: 4px;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent-gold);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .hero-overlay {
-            /* Deep Oxford Blue overlay for hero background (lighter so image shows through) */
-            background: linear-gradient(rgba(2, 28, 47, 0.35), rgba(2, 23, 37, 0.42));
-            position: absolute;
-            inset: 0;
-            z-index: 5; /* sits above the image but below the main content (z-10) */
-        }
-        /* Make hero images crop differently on small screens (focus higher) */
-        .hero-media {
-            position: absolute;
-            inset: 0;
-            z-index: 0; /* image layer */
-        }
-        .hero-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center; /* default framing */
-            display: block;
-        }
-        @media (max-width: 640px) {
-            .hero-media img {
-                object-position: center 30%; /* show more of upper area on mobile */
-            }
-            .hero-overlay {
-                background: linear-gradient(rgba(2, 28, 47, 0.92), rgba(2, 23, 37, 0.96));
-            }
-        }
-        /* Refined serif styling for headings */
-        h1 { font-size: 4rem; line-height: 1.1; }
-        h2 { font-size: 2.75rem; line-height: 1.2; }
-        /* Smooth width transitions for city tiles */
-        .city-tile {
-            transition: flex-basis 260ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease, border-color 220ms ease;
-        }
-        /* Contact button: outline by default, gold background + white text on hover */
-        .contact-btn {
-            background: transparent;
-            color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
-            padding: 0.625rem 1.5rem; /* align with px-6 py-2.5 */
-            transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease;
-        }
-        .contact-btn:hover, .contact-btn:focus {
-            background-color: var(--accent-gold);
-            color: white;
-            box-shadow: 0 6px 18px rgba(13, 26, 20, 0.12);
-            outline: none;
-        }
-        
-    </style>
--->
 </head>
 <body class="text-slate-800">
 
@@ -135,10 +30,10 @@
     <nav class="sticky top-0 w-full z-50 bg-white border-b border-slate-100 py-6 px-8 flex justify-between items-center shadow-sm">
         <div class="flex items-center gap-4">
                 <div class="w-11 h-11 border border-gold flex items-center justify-center bg-white/0">
-                <img src="images/akupara_ventures_logo.png" alt="Akupara Ventures logo" class="w-10 h-10 object-contain" />
+                <img src="images/akupara_ventures_logo.png" alt="Akūpāra Ventures logo" class="w-10 h-10 object-contain" />
             </div>
                 <div class="flex flex-col">
-                <span class="text-2xl font-serif font-bold tracking-tight text-[#021c2f] leading-none " aria-label="Akupara Ventures">Akupara Ventures</span>
+                <span class="text-2xl font-serif font-bold tracking-tight text-[#021c2f] leading-none " aria-label="Akupara Ventures">Akūpāra Ventures</span>
                 <span class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold mt-1.5">Wealth & Finance Management LLP</span>
             </div>
         </div>
@@ -171,7 +66,7 @@
             </h1>
             <div class="w-24 h-[1px] bg-gold mx-auto mb-12 opacity-60"></div>
             <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-16 font-semibold leading-relaxed">
-                Akupara Ventures LLP provides a bridge between personal finance and strategic investments, ensuring wealth building for you to stand on a solid financial foundation.
+                Akūpāra Ventures LLP provides a bridge between personal finance and strategic investments, ensuring wealth building for you to stand on a solid financial foundation.
             </p>
             <div class="flex flex-wrap justify-center gap-8">
                 <a href="#contact" class="btn-gold px-14 py-5 text-white text-[11px] font-bold uppercase tracking-[0.25em] shadow-2xl">Consult Our Partners</a>
@@ -186,7 +81,7 @@
                 <span class="text-gold uppercase tracking-[0.25em] text-[10px] font-bold">Our Philosophy</span>
                 <h2 class="font-serif text-[#021c2f] mt-8 mb-10 italic">A Heritage of Trust, <br/><span class="not-italic font-bold text-gold">A Future of Stability.</span></h2>
                 <p class="text-slate-600 leading-relaxed mb-10 font-light text-[15px]">
-                    Named after the celestial tortoise that supports the world, Akupara Ventures was founded on the principle that the most ambitious ventures require the sturdiest foundations. We provide stability in an ever-shifting global landscape.
+                    Named after the celestial tortoise that supports the world, Akūpāra Ventures was founded on the principle that the most ambitious ventures require the sturdiest foundations. We provide stability in an ever-shifting global landscape.
                 </p>
                 <p class="text-slate-700 leading-relaxed italic border-l-2 border-gold pl-10 font-serif text-xl py-2">
                     "We expertise in establishing LLP for wealth building and strategizing  personal finance and risk management.
@@ -286,7 +181,7 @@
     <section id="contact" class="bg-[#021c2f] text-white py-32 px-8 relative">
         <div class="max-w-4xl mx-auto text-center mb-24">
             <h2 class="font-serif italic text-5xl mb-8 text-gold">How can we be of any service</h2>
-            <p class="text-slate-400 font-light text-sm tracking-widest uppercase">Please drop a mail filling following form. We will get back to you as soon as possible.</p>
+            <p class="text-slate-400 font-light text-sm tracking-widest uppercase">Please fill following form. We will get back to you as soon as possible.</p>
         </div>
         
         <div class="max-w-3xl mx-auto">
@@ -298,17 +193,20 @@
             <label for="name">Full Name</label>
             <input type="text"  name="Name_First" fieldType=7 class="bg-transparent border-b border-gold/30 p-5 text-xs font-light tracking-widest focus:border-gold outline-none transition-all uppercase placeholder:text-slate-600" placeholder="First Name">
             <input type="text"  name="Name_Last" fieldType=7 class="bg-transparent border-b border-gold/30 p-5 text-xs font-light tracking-widest focus:border-gold outline-none transition-all uppercase placeholder:text-slate-600" placeholder="Last Name"><br>
+            <br>
             <label>Email</label>
-            <input type="text" name="Email" value="" fieldType=9 class="bg-transparent border-b border-gold/30 p-5 text-xs font-light tracking-widest focus:border-gold outline-none transition-all uppercase placeholder:text-slate-600" placeholder="">
+            <input type="text" name="Email" value="" fieldType=9 class="bg-transparent border-b border-gold/30 p-5 text-xs font-light tracking-widest focus:border-gold outline-none transition-all uppercase placeholder:text-slate-600" placeholder=""><br>
+            <br>
             <label>Phone</label>
             <input type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1" isCountryCodeEnabled=false maxlength="20" value="" fieldType=11 id="international_PhoneNumber_countrycode" class="bg-transparent border-b border-gold/30 p-5 text-xs font-light tracking-widest focus:border-gold outline-none transition-all uppercase placeholder:text-slate-600" placeholder=""><br>
+            <br>
             <label>Enquiring for</label>
             <select name="Dropdown" class="bg-transparent border-b border-gold/30 p-5 text-xs font-light tracking-widest focus:border-gold outline-none transition-all md:col-span-2 uppercase text-slate-300">
                 <option selected="true" value="-Select-">-Select-</option>
                 <option class="bg-[#021c2f]">Wealth Management</option>
                 <option class="bg-[#021c2f]">Investment Advisory</option>
                 <option class="bg-[#021c2f]">Financial Planning</option>
-            </select><br>
+            </select><br><br>            
             <label for="description">Description</label>
             <textarea id="description" placeholder="Briefly describe your requirements..." class="bg-transparent border-b border-gold/30 p-5 text-xs font-light tracking-widest focus:border-gold outline-none transition-all md:col-span-45 h-26 uppercase placeholder:text-slate-600"></textarea>
             <div class="md:col-span-2 text-center mt-16">
@@ -319,12 +217,12 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#021720] text-slate-500 py-20 px-8 border-t border-gold/10">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-[10px] tracking-[0.3em] uppercase font-bold">
+    <footer class="bg-[#021720] text-gray-400 text-center py-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-[10px] tracking-[0.3em]">
             <div class="flex items-center gap-8">
                 <div class="w-8 h-8 border border-gold/30 flex items-center justify-center font-serif text-gold/50 text-sm">AV</div>
-                <span class="text-white/80">Akupara Ventures LLP</span>
-                <span class="text-white/80">&copy; 2026 All Rights Reserved</span>
+                <span class="text-gray-400 py-10">Akūpāra Ventures LLP</span>
+                <span class="text-gray-400 py-10">&copy; 2026 All Rights Reserved</span>
             </div>
             <div class="flex gap-12">
                 <a href="#" class="hover:text-gold transition-colors duration-300">Terms</a>
