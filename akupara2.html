@@ -8,6 +8,9 @@
     <!-- Fonts for options B & C: Poppins (UI), Cormorant Garamond (B headings), Merriweather (C headings) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!--
     <style>
         :root {
             /* Deep Oxford Blue */
@@ -112,8 +115,7 @@
         }
         
     </style>
-            <!-- Leaflet CSS -->
-            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+-->
 </head>
 <body class="text-slate-800">
 
@@ -121,7 +123,7 @@
     <div class="bg-[#021c2f] text-white py-2.5 px-8 hidden md:flex justify-between items-center text-[12px] tracking-[0.25em] uppercase font-semibold">
         <div class="flex gap-8">
             <span class="opacity-80">LLP Registration: LLP-IN:ACW-3028</span>
-            <span class="opacity-80">Global Presence: 8 Strategic Hubs</span>
+            <span class="opacity-80">Global Presence: 3 Strategic Hubs</span>
         </div>
         <div class="flex gap-6">
             <a href="#" class="hover:text-gold transition-colors duration-300">Insights</a>
@@ -133,7 +135,7 @@
     <nav class="sticky top-0 w-full z-50 bg-white border-b border-slate-100 py-6 px-8 flex justify-between items-center shadow-sm">
         <div class="flex items-center gap-4">
                 <div class="w-11 h-11 border border-gold flex items-center justify-center bg-white/0">
-                <img src="akupara_ventures_logo.png" alt="Akupara Ventures logo" class="w-10 h-10 object-contain" />
+                <img src="images/akupara_ventures_logo.png" alt="Akupara Ventures logo" class="w-10 h-10 object-contain" />
             </div>
                 <div class="flex flex-col">
                 <span class="text-2xl font-serif font-bold tracking-tight text-[#021c2f] leading-none " aria-label="Akupara Ventures">Akupara Ventures</span>
@@ -156,7 +158,7 @@
             <!-- Finance / trading desk themed background (responsive local copies) -->
             <div class="hero-media">
                 <!-- Use the local hero image directly to ensure it always displays -->
-                <img src="./hero_financial.jpg" class="w-full h-full object-cover" alt="Financial meeting with charts" loading="lazy">
+                <img src="images/hero_financial.jpg" class="w-full h-full object-cover" alt="Financial meeting with charts" loading="lazy">
             </div>
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
@@ -194,7 +196,7 @@
             <div class="relative order-1 md:order-2">
                 <div class="absolute -top-8 -right-8 w-full h-full border border-gold z-0 opacity-20"></div>
                 <!-- Finance meeting / charts image (local copy) -->
-                <img src="./hero_financial.jpg" class="relative z-10 w-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000" alt="Financial meeting with charts">
+                <img src="images/hero_financial.jpg" class="relative z-10 w-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000" alt="Financial meeting with charts">
             </div>
         </div>
     </section>

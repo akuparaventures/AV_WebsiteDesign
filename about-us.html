@@ -8,7 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<!--
     <style>
 
         body{
@@ -42,14 +44,33 @@
             padding:90px 20px;
         }
 
-    </style>
-
+    </style>-->
 </head>
 
 <body>
 
 <!-- Navigation -->
 
+<nav class="sticky top-0 w-full z-50 bg-white border-b border-slate-100 py-6 px-8 flex justify-between items-center shadow-sm">
+    <div class="flex items-center gap-4">
+            <div class="w-11 h-11 border border-gold flex items-center justify-center bg-white/0">
+                <img src="images/akupara_ventures_logo.png" alt="Akupara Ventures logo" class="w-10 h-10 object-contain" />
+            </div>
+            <div class="flex flex-col">
+                <span class="text-2xl font-serif font-bold tracking-tight text-[#021c2f] leading-none " aria-label="Akupara Ventures">Akupara Ventures</span>
+                <span class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold mt-1.5">Wealth & Finance Management LLP</span>
+            </div>
+    </div>
+    <div class="hidden lg:flex gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-[#021c2f]">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="/about-us.html" class="nav-link">About Us</a>
+        <a href="#practice-areas" class="nav-link">Practice Areas</a>
+        <a href="#global" class="nav-link">Global Reach</a>
+        <a href="#contact" class="contact-btn">Contact Us</a>
+    </div>
+        
+</nav>
+<!----
 <nav class="bg-white shadow py-6 px-10 flex justify-between items-center">
 
     <div>
@@ -77,6 +98,7 @@
     </div>
 
 </nav>
+-->
 
 <!-- Hero -->
 
@@ -134,7 +156,7 @@ planning, financial advisory, and risk management.
 
 <div>
 
-<img src="hero_financial.jpg"
+<img src="images/hero_financial.jpg"
 class="rounded-lg shadow-2xl">
 
 </div>
