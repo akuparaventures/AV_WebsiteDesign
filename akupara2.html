@@ -31,27 +31,6 @@
         </div>
     </div>
 
-    <!-- Navigation 
-    <nav class="sticky top-0 w-full z-50 bg-white border-b border-slate-100 py-6 px-8 flex justify-between items-center shadow-sm">
-        <div class="flex items-center gap-4">
-                <div class="w-11 h-11 border border-gold flex items-center justify-center bg-white/0">
-                <img src="images/akupara_ventures_logo.png" alt="Akūpāra Ventures logo" class="w-10 h-10 object-contain" />
-            </div>
-                <div class="flex flex-col">
-                <span class="text-2xl font-serif font-bold tracking-tight text-[#021c2f] leading-none " aria-label="Akupara Ventures">Akūpāra Ventures</span>
-                <span class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold mt-1.5">Wealth & Finance Management LLP</span>
-            </div>
-        </div>
-    <div class="hidden  md:flex gap-8 text-[11px] font-bold uppercase tracking-[0.2em] text-[#021c2f]">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="/about-us.html" class="nav-link">About Us</a>
-            <a href="#practice-areas" class="nav-link">Practice Areas</a>
-            <a href="#global" class="nav-link">Global Reach</a>
-            <a href="#contact" class="contact-btn">Contact Us</a>
-        </div>
-        
-    </nav> -->
-
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -493,49 +472,61 @@
         adjustTiles();
     })();
 </script>
-<script src="js/main.js">
-    async function fixMenu() {
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    
-    if (!menuBtn || !mobileMenu) return "Elements not found";
-    
-    const lines = menuBtn.querySelectorAll(".hamburger-line");
-    let open = false;
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        
+        if (!menuBtn || !mobileMenu) return;
 
-    menuBtn.addEventListener("click", () => {
-        open = !open;
-        if (open) {
-            mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
-            lines[0].classList.add("translate-y-2", "rotate-45");
-            lines[1].classList.add("opacity-0");
-            lines[2].classList.add("-translate-y-2", "-rotate-45");
-        } else {
-            mobileMenu.style.maxHeight = "0";
-            lines[0].classList.remove("translate-y-2", "rotate-45");
-            lines[1].classList.remove("opacity-0");
-            lines[2].classList.remove("-translate-y-2", "-rotate-45");
-        }
-    });
+        const lines = menuBtn.querySelectorAll(".hamburger-line");
 
-    document.querySelectorAll("#mobile-menu a").forEach(link => {
-        link.addEventListener("click", () => {
-            mobileMenu.style.maxHeight = "0";
-            open = false;
-            lines[0].classList.remove("translate-y-2", "rotate-45");
-            lines[1].classList.remove("opacity-0");
-            lines[2].classList.remove("-translate-y-2", "-rotate-45");
+        let open = false;
+
+        menuBtn.addEventListener("click", function() {
+
+            open = !open;
+
+            if (open) {
+
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+
+                lines[0].classList.add("translate-y-2", "rotate-45");
+                lines[1].classList.add("opacity-0");
+                lines[2].classList.add("-translate-y-2", "-rotate-45");
+
+            } else {
+
+                mobileMenu.style.maxHeight = "0";
+
+                lines[0].classList.remove("translate-y-2", "rotate-45");
+                lines[1].classList.remove("opacity-0");
+                lines[2].classList.remove("-translate-y-2", "-rotate-45");
+
+            }
+
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll("#mobile-menu a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                mobileMenu.style.maxHeight = "0";
+
+                open = false;
+
+                lines[0].classList.remove("translate-y-2", "rotate-45");
+                lines[1].classList.remove("opacity-0");
+                lines[2].classList.remove("-translate-y-2", "-rotate-45");
+
+            });
+
         });
     });
-
-    // Also remove the src from the faulty script tag to make it work or just run it here.
-    // In a real scenario, the user would need to fix the HTML.
-    return "Event listeners attached";
-}
-
-const data = {
-  result: await fixMenu()
-};
 </script>
+<!--
+<script src="js/main.js"></script>
+-->
 
 </html>
